@@ -1,0 +1,23 @@
+[package]
+name = "cargo-carrier-server"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.71"
+
+[profile.release]
+opt-level = "s"
+lto = "fat"
+codegen-units = 1
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[dependencies]
+anyhow = "1.0.82"
+esp-idf-hal = "0.43.1"
+esp-idf-sys = { version = "0.34.1", features = ["native", "binstart"] }
+esp32-nimble = "0.6.0"
+
+[build-dependencies]
+embuild = "0.31.4"
